@@ -1,0 +1,4 @@
+REACT_APP_SERVER = http://localhost:4000/api/v1
+
+
+change this file name to .env
