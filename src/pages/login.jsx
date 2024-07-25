@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Announcement } from "./anouncement";
+import  Announcement  from "./anouncement";
 import { Navbar } from "./navbar";
 import { useNavigate } from "react-router-dom";
 import { server, Context } from "../index";

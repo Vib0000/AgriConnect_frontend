@@ -1,4 +1,4 @@
-export const Announcement = () => {
+ const Announcement = () => {
     return (
       <div className="w-full flex items-center justify-center bg-[#b9d0ef] fixed top-0">
         <p className="text-black text-center">
@@ -10,5 +10,6 @@ export const Announcement = () => {
       </div>
     );
   };
+  export default Announcement;
   
   
