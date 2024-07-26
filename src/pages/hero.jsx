@@ -1,4 +1,4 @@
-import { Announcement } from "./anouncement";
+import  Announcement  from "./anouncement";
 import { Navbar } from "./navbar";
 import React from "react";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Announcement } from "./anouncement";
+import  Announcement  from "./anouncement";
 import { Navbar } from "./navbar";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
