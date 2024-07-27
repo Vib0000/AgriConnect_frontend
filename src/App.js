@@ -7,13 +7,16 @@ import MyPage from "./pages/himanshu1";
 import Announcement from "./pages/anouncement";
 import { Navbar } from "./pages/navbar";
 import Services from './pages/services';
+import ServiceCard from "./seevices/ServiceCard";
+import ServiceDetail from './seevices/ServiceDetail';
 function App() {
   return (
     <>
+
     <Announcement/>
        <Navbar/>
-    
-    <div>
+    { 
+      <div>
       
       <Router>
         <Routes>
@@ -22,10 +25,11 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route  path="/himanshu1"  element={<MyPage/>}/>
           <Route  path="/services"  element={<Services/>}/>
-
+          <Route path="/seviceCard" element={<ServiceCard />} />
+        <Route path="/service/:id" element={<ServiceDetail />} />
         </Routes>
       </Router>
-    </div>
+    </div>}
     </>
   );
 }
