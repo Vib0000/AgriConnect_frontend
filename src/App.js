@@ -7,7 +7,8 @@ import MyPage from "./pages/himanshu1";
 import Announcement from "./pages/anouncement";
 import { Navbar } from "./pages/navbar";
 import Services from './pages/services';
-import YourServices from './pages/yourServices'
+import { CropDetail } from "./pages/cropdetail";
+import { WeatherDetail } from "./pages/weather";
 function App() {
   return (
     <>
@@ -24,6 +25,8 @@ function App() {
           <Route  path="/himanshu1"  element={<MyPage/>}/>
           <Route  path="/services"  element={<Services/>}/>
           <Route  path="/yourservices"  element={<YourServices/>}/>
+          <Route  path="/cropdetail"  element={<CropDetail/>}/>
+          <Route  path="/wether"  element={<WeatherDetail/>}/>
 
         </Routes>
       </Router>
