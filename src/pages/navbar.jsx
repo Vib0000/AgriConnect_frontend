@@ -23,7 +23,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="w-full flex items-center justify-center px-3 fixed top-12">
+    <div className="w-full flex items-center justify-center px-3 fixed bg-slate-200 top-10">
       <div className="w-5/6 flex justify-between items-center">
         <div className="gap-24 flex justify-between items-center">
           <div className="md:hidden relative">
@@ -97,20 +97,20 @@ export const Navbar = () => {
               {isAuthenticated ? (
                 <button
                   onClick={logoutHandler}
-                  className="flex items-center justify-center h-10 w-32 rounded-md bg-gray-200 text-black hover:bg-gray-300"
+                  className="flex items-center justify-center h-10 w-32 rounded-md bg-blue-500 text-white  bg-blue-500"
                 >
                   Logout
                 </button>
               ) : (
                 <a href="/login">
-                  <button className="flex items-center justify-center h-10 w-32 rounded-md bg-gray-200 text-black hover:bg-gray-300">
+                  <button className="flex items-center justify-center h-10 w-32 rounded-md bg-blue-500 text-white  bg-blue-500">
                     Login
                   </button>
                 </a>
               )}
             </li>
             <li>
-              <button className="flex items-center justify-center text-white bg-blue-500 h-10 w-32 rounded-md hover:bg-blue-600">
+              <button className="flex items-center justify-center text-white bg-blue-500 h-10 w-32 rounded-mdc">
                 Try for free
               </button>
             </li>
