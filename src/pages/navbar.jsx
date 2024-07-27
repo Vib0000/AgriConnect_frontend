@@ -1,56 +1,91 @@
 import React, { useContext } from "react";
 import { useState } from "react";
-import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { server, Context } from "../index";
+import Logo from "../Assets/Logo.png";
 
 export const Navbar = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const logoutHandler = async () => {
-    console.log("Logout button clicked"); // Log for checking button click
-
     try {
-      const response = await axios.get(`${server}/users/logout`, {
-        withCredentials: true, 
+      await axios.get(`${server}/users/logout`, {
+        withCredentials: true,
       });
-
-      alert("Logout succesfully"); 
+      alert("Logout successfully");
       setIsAuthenticated(false);
-      console.log("User logged out, state updated to:", isAuthenticated);
     } catch (error) {
       alert("Logout failed");
       setIsAuthenticated(true);
-
     }
   };
+
   return (
     <div className="w-full flex items-center justify-center px-3 fixed top-12">
       <div className="w-5/6 flex justify-between items-center">
-        <div className="gap-5">
-          <a href="/" className="flex items-center gap-3">
-            <img
-              src="https://s3-alpha-sig.figma.com/img/0815/78d9/872c740534629bce867325cd8ecbc7df?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GmdChUcyt3JgYBuC3GWhV8p~YZmhQOmkRuIkjUkblCoKPx8hIga4-kK4D82DjlhS7SviFpGbVQuTteR07v84lXPbXySFAoJyXOKcPN9B4QBkLT69TnJThel12JfH0j74f3ZXoJ4geZaEQNyjF4KHupZrA3fJqSke-ayVQwUi8UD8NxNUqxcfBllawri9GbQKurn3-hrb0qNNVOylGO10VfJQxOkYWvkbdXdIHNgIxTtDgfm8r0QijuSnqVTuc8XEO8Uik91WYsE2o86Hg1-qG-t1KNS1QVs8Op-upfTSjzGciInz7uv8m~q15MwOnUhhZVdCxSNuh7dMup5pJp2PtA__"
-              alt="Logo"
-              className="w-30 h-10 mr-2"
-            />
-            <button className="flex items-center justify-center text-white bg-blue-500 h-10 w-32 rounded-md">
-              <p className="mr-1">Course</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                className="fill-current text-white"
-              >
-                <path d="M7 10l5 5 5-5z" />
-              </svg>
-            </button>
-          </a>
+        <div className="gap-24 flex justify-between items-center">
+          <div className="md:hidden relative">
+            <div
+              className="md:hidden cursor-pointer"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              &#8801;
+            </div>
+            <ul
+              className={`${
+                isMenuOpen ? "block" : "hidden"
+              } md:flex md:flex-row absolute md:static bg-white border border-gray-300 p-4 mt-2 left-0 md:left-auto md:right-auto w-48 md:w-auto z-50`}
+              style={{ left: "0", top: "100%" }}
+            >
+              <li className="w-full md:w-auto">
+                <a href="/" className="block p-2 md:p-0">
+                  Home
+                </a>
+              </li>
+              <li className="w-full md:w-auto">
+                <a href="/refer" className="block p-2 md:p-0">
+                  Refer & Earn
+                </a>
+              </li>
+              <li className="w-full md:w-auto">
+                <a href="#about-us" className="block p-2 md:p-0">
+                  About Us
+                </a>
+              </li>
+              <li className="w-full md:w-auto">
+                {isAuthenticated ? (
+                  <button
+                    onClick={logoutHandler}
+                    className="block w-full text-left p-2 md:p-0 md:flex items-center justify-center h-10 rounded-md bg-gray-200 text-black hover:bg-gray-300"
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  <a
+                    href="/login"
+                    className="block w-full text-left p-2 md:p-0 md:flex items-center justify-center h-10 rounded-md bg-gray-200 text-black hover:bg-gray-300"
+                  >
+                    Login
+                  </a>
+                )}
+              </li>
+              <li className="w-full mt-2 md:w-auto">
+                <button className="block w-full text-left p-2 md:p-0 md:flex items-center justify-center text-white bg-blue-500 h-10 rounded-md hover:bg-blue-600">
+                  Try for free
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div className="md:right-0">
+            <a href="/" className="right-0 flex items-center gap-3">
+              <img src={Logo} alt="Logo" className="md:w-36 w-28 h-28 mr-2" />
+            </a>
+          </div>
         </div>
         <div>
-          <ul className="flex gap-4 items-center">
+          <ul className="hidden md:flex gap-4 items-center">
             <li>
               <a href="/">Home</a>
             </li>
@@ -62,18 +97,20 @@ export const Navbar = () => {
               {isAuthenticated ? (
                 <button
                   onClick={logoutHandler}
-                  className="flex items-center justify-center h-10 w-32 rounded-md bg-[#94A3B8] text-black"
+                  className="flex items-center justify-center h-10 w-32 rounded-md bg-gray-200 text-black hover:bg-gray-300"
                 >
                   Logout
                 </button>
               ) : (
-                <button className="flex items-center justify-center h-10 w-32 rounded-md bg-[#94A3B8] text-black">
-                  <a href="/login">Login</a>
-                </button>
+                <a href="/login">
+                  <button className="flex items-center justify-center h-10 w-32 rounded-md bg-gray-200 text-black hover:bg-gray-300">
+                    Login
+                  </button>
+                </a>
               )}
             </li>
             <li>
-              <button className="flex items-center justify-center text-white bg-blue-500 h-10 w-32 rounded-md">
+              <button className="flex items-center justify-center text-white bg-blue-500 h-10 w-32 rounded-md hover:bg-blue-600">
                 Try for free
               </button>
             </li>

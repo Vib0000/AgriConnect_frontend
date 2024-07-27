@@ -7,7 +7,6 @@ export const Hero = () => {
     <div>
       <Announcement />
       <Navbar />
-     
     </div>
   );
 };
