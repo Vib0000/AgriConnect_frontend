@@ -9,6 +9,7 @@ import { Navbar } from "./pages/navbar";
 import Services from './pages/services';
 import { CropDetail } from "./pages/cropdetail";
 import { WeatherDetail } from "./pages/weather";
+import YourServices from './pages/yourServices';
 function App() {
   return (
     <>
