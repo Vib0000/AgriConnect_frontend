@@ -6,7 +6,7 @@ import { Register } from "./pages/register";
 import MyPage from "./himanshu1";
 import Announcement from "./pages/anouncement";
 import { Navbar } from "./pages/navbar";
-
+import Services from './pages/services';
 function App() {
   return (
     <>
@@ -21,6 +21,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route  path="/himanshu1"  element={<MyPage/>}/>
+          <Route  path="/services"  element={<Services/>}/>
+
         </Routes>
       </Router>
     </div>

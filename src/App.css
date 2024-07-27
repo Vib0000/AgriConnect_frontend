@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+/* App.css */
+
+.announcement {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Higher z-index to stay above other content */
+  background-color: #ffcc00; /* Background color for visibility */
+  padding: 10px;
+  text-align: center;
+}
+
+.navbar {
+  position: sticky;
+  top: 50px; /* Adjust based on the height of the announcement bar */
+  z-index: 1000; /* Higher z-index to stay above other content */
+  background-color: #ffffff; /* Background color for visibility */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+
+/* Additional styles for other components if necessary */
+
