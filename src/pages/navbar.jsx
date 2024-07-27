@@ -97,13 +97,13 @@ export const Navbar = () => {
               {isAuthenticated ? (
                 <button
                   onClick={logoutHandler}
-                  className="flex items-center justify-center h-10 w-32 rounded-md bg-blue-500 text-white  bg-blue-500"
+                  className="flex items-center justify-center h-10 w-32 rounded-md bg-blue-500 text-white hover:bg-blue-600"
                 >
                   Logout
                 </button>
               ) : (
                 <a href="/login">
-                  <button className="flex items-center justify-center h-10 w-32 rounded-md bg-blue-500 text-white  bg-blue-500">
+                  <button className="flex items-center justify-center h-10 w-32 rounded-md bg-blue-500 text-white hover:bg-blue-600">
                     Login
                   </button>
                 </a>
