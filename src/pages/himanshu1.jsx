@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/himanshu1.css';
 import { styled } from '@mui/material/styles';
 import {
   FormControl,
@@ -24,7 +25,7 @@ import { Cancel as CancelIcon } from '@mui/icons-material';
 const FormContainer = styled(Box)(({ theme }) => ({
   maxWidth: 900,
   margin: 'auto',
-  marginTop: '10%',
+  marginTop: '15%',
   padding: theme.spacing(5),
   background: 'rgba(255, 255, 255, 0.95)',
   borderRadius: 16,
@@ -33,7 +34,7 @@ const FormContainer = styled(Box)(({ theme }) => ({
   fontFamily: 'Arial, sans-serif',
   position: 'relative',
   overflow: 'hidden',
-  zIndex: 1, // Ensure the form is above other components
+  zIndex: -10, // Ensure the form is above other components
   '&::before': {
     content: '""',
     position: 'absolute',
@@ -45,7 +46,7 @@ const FormContainer = styled(Box)(({ theme }) => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     opacity: 0.6,
-    zIndex: -1,
+    zIndex: -10,
     filter: 'brightness(0.6)',
   },
 }));
