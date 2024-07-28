@@ -32,7 +32,7 @@ function App() {
         <Route path="/service/:id" element={<ServiceDetail />} />
           <Route  path="/yourservices"  element={<YourServices/>}/>
           <Route  path="/cropdetail"  element={<CropDetail/>}/>
-          <Route  path="/wether"  element={<WeatherDetail/>}/>
+          <Route  path="/weather"  element={<WeatherDetail/>}/>
 
         </Routes>
       </Router>
