@@ -25,6 +25,7 @@ function ServiceCard({ service }) {
           <CardContent>
             <Typography variant="h6" fontWeight="bold">{service.name}</Typography>
             <Typography variant="body2" color="text.secondary">{service.service}</Typography>
+            <Typography variant="body2" color="text.secondary">{service.cost}</Typography>
             <Typography variant="body2" color="text.secondary">{service.contact}</Typography>
           </CardContent>
         </Card>
