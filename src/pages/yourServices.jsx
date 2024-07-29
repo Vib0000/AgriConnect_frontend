@@ -77,84 +77,141 @@ const thraserImages=[thr1,thr2,thr3,thr4,thr5,thr6,thr7,thr8,thr9,thr10];
 const cropImages=[cro1,cro2,cro3,cro4,cro5,cro6,cro7,cro8,cro9,cro10];
 
 const ServicesContainer = styled(Box)(({ theme }) => ({
-  maxWidth: 900,
-  margin: 'auto',
-  marginTop: '15%', 
-  padding: theme.spacing(4),
-  background: 'rgba(255, 255, 255, 0.95)',
-  borderRadius: 16,
-  boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.3)',
-  border: `1px solid #a5d6a7`,
-  fontFamily: 'Arial, sans-serif',
-  zIndex: 0,
-  position: 'relative', 
-}));
-
-const ServiceBox = styled(Box)(({ theme }) => ({
-  border: '1px solid #4caf50',
-  borderRadius: '8px',
-  padding: theme.spacing(2),
-  margin: theme.spacing(1),
-  backgroundColor: 'rgba(233, 245, 233, 0.9)',
-  boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
-  overflow: 'hidden', 
-  zIndex: 1,
-}));
-
-const ServiceTitle = styled(Typography)(({ theme }) => ({
-  display: 'flex',
-  overflow: 'hidden',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  color: '#1b5e20',
-}));
-
-const EditDeleteButtons = styled(Box)(({ theme }) => ({
-  overflow: 'hidden',
-  display: 'flex',
-  gap: theme.spacing(1),
-}));
-
-const ModalContainer = styled(Box)(({ theme }) => ({
-  position: 'relative',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  maxHeight: '80%', 
-  overflowY: 'auto', 
-  backgroundColor: 'white',
-  border: '2px solid #4caf50',
-  boxShadow: theme.shadows[5],
-  padding: theme.spacing(4),
-  borderRadius: 12,
-  zIndex: 2, 
-}));
-
-const WorkerImage = styled('img')({
-  width: 50,
-  height: 50,
-  borderRadius: '50%',
-  marginRight: 16,
-});
-
-const WorkerDetails = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  marginBottom: theme.spacing(1),
-  padding: theme.spacing(1),
-  border: '1px solid #c8e6c9',
-  borderRadius: '8px',
-  backgroundColor: 'rgba(255, 255, 255, 0.9)',
-  boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
-}));
-
-const WorkersAccordionDetails = styled(AccordionDetails)(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  overflowY: 'auto', 
-  maxHeight: 200, 
-}));
+    maxWidth: 900,
+    margin: 'auto',
+    marginTop: '15%',
+    padding: theme.spacing(4),
+    background: 'rgba(255, 255, 255, 0.95)',
+    borderRadius: 16,
+    boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.3)',
+    border: '4px dashed transparent',
+    position: 'relative',
+    fontFamily: 'Arial, sans-serif',
+    zIndex: 0,
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    animation: 'borderAnimation 7s linear infinite',
+ 
+    '&:hover': {
+      transform: 'translateY(-5px)',
+      boxShadow: '0px 12px 24px rgba(0, 0, 0, 0.35)',
+    },
+  }));
+  
+  const ServiceBox = styled(Box)(({ theme }) => ({
+    border: '4px solid transparent',
+    borderRadius: '8px',
+    padding: theme.spacing(2),
+    margin: theme.spacing(1),
+    backgroundColor: 'rgba(233, 245, 233, 0.9)',
+    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
+    overflow: 'hidden',
+    marginTop: '5px',
+    zIndex: 1,
+    position: 'relative',
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    '&:hover': {
+      transform: 'translateY(-5px)',
+      boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.25)',
+    },
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      top: '-4px',
+      left: '-4px',
+      width: 'calc(100% + 8px)',
+      height: 'calc(100% + 8px)',
+      border: '4px solid transparent',
+      borderRadius: '8px',
+      background: 'linear-gradient(30deg,  yellow,pink )',
+      backgroundSize: '400% 400%',
+      animation: 'borderMovement 10s linear infinite',
+      zIndex: -1,
+    },
+    '@keyframes borderMovement': {
+      '0%': {
+        backgroundPosition: '0% 50%',
+      },
+      '100%': {
+        backgroundPosition: '100% 50%',
+      },
+    },
+  }));
+  
+  const ServiceTitle = styled(Typography)(({ theme }) => ({
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    color: '#1b5e20',
+    fontWeight: 'bold',
+    fontSize: '1.2rem',
+    transition: 'color 0.3s ease',
+    '&:hover': {
+      color: '#2e7d32',
+    },
+  }));
+  
+  const EditDeleteButtons = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    gap: theme.spacing(1),
+    '& button:hover': {
+      backgroundColor: '#2e7d32',
+      color: 'white',
+      boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
+    },
+  }));
+  
+  const ModalContainer = styled(Box)(({ theme }) => ({
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    maxHeight: '80%',
+    overflowY: 'auto',
+    backgroundColor: 'white',
+    border: '2px solid #4caf50',
+    boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.3)',
+    padding: theme.spacing(4),
+    borderRadius: 12,
+    zIndex: 1,
+    transition: 'box-shadow 0.3s ease',
+    '&:hover': {
+      boxShadow: '0px 12px 24px rgba(0, 0, 0, 0.35)',
+    },
+  }));
+  
+  const WorkerImage = styled('img')({
+    width: 50,
+    height: 50,
+    borderRadius: '50%',
+    marginRight: 16,
+    transition: 'transform 0.3s ease',
+    '&:hover': {
+      transform: 'scale(1.1)',
+    },
+  });
+  
+  const WorkerDetails = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    marginBottom: theme.spacing(1),
+    padding: theme.spacing(1),
+    border: '1px solid #c8e6c9',
+    borderRadius: '8px',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+    transition: 'background-color 0.3s ease',
+    '&:hover': {
+      backgroundColor: 'rgba(200, 230, 200, 0.9)',
+    },
+  }));
+  
+  const WorkersAccordionDetails = styled(AccordionDetails)(({ theme }) => ({
+    display: 'flex',
+    flexDirection: 'column',
+    overflowY: 'auto',
+    maxHeight: 200,
+  }));
 
 const YourServices = () => {
   const navigate = useNavigate();
@@ -453,7 +510,7 @@ const YourServices = () => {
 
           <Accordion>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography>Workers ({service.workers.length})</Typography>
+              <Typography>{service.name} ({service.workers.length})</Typography>
             </AccordionSummary>
             <WorkersAccordionDetails>
               <Box flexDirection="column" width="100%">

@@ -34,7 +34,7 @@ const FormContainer = styled(Box)(({ theme }) => ({
   fontFamily: 'Arial, sans-serif',
   position: 'relative',
   overflow: 'hidden',
-  zIndex: -10, // Ensure the form is above other components
+  zIndex: 0, // Ensure the form is above other components
   '&::before': {
     content: '""',
     position: 'absolute',

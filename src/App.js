@@ -10,28 +10,39 @@ import Services from './pages/services';
 import { CropDetail } from "./pages/cropdetail";
 import { WeatherDetail } from "./pages/weather";
 import YourServices from './pages/yourServices';
+import HomePage from "./pages/HomePage";
+import theme from "./pages/theme";
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
 function App() {
   return (
     <>
-    <Announcement/>
-       <Navbar/>
-    
+     {/* <Announcement/>
+     <Navbar/> */}
+      <ThemeProvider theme={theme}>
+   
+       <CssBaseline />
     <div>
       
       <Router>
         <Routes>
-          <Route path="/" element={<Hero />} />
+          {/* <Route path="/" element={<Hero />} /> */}
+          
+          <Route path="/" element={<HomePage />} />
+
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route  path="/himanshu1"  element={<MyPage/>}/>
           <Route  path="/services"  element={<Services/>}/>
           <Route  path="/yourservices"  element={<YourServices/>}/>
           <Route  path="/cropdetail"  element={<CropDetail/>}/>
-          <Route  path="/wether"  element={<WeatherDetail/>}/>
+          <Route  path="/weather"  element={<WeatherDetail/>}/>
 
         </Routes>
       </Router>
     </div>
+    </ThemeProvider>
     </>
   );
 }
