@@ -23,7 +23,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="w-full flex items-center justify-center px-3 fixed top-10 bg-blue-200">
+    <div className="w-full flex items-center justify-center px-3 fixed top-12">
       <div className="w-5/6 flex justify-between items-center">
         <div className="gap-24 flex justify-between items-center">
           <div className="md:hidden relative">
