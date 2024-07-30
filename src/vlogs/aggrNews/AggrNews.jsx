@@ -1,4 +1,3 @@
-// ServiceList.js
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Card, CardContent, CardMedia, Typography, IconButton } from '@mui/material';
@@ -13,31 +12,41 @@ const truncateText = (text, maxLength = 100) => {
 };
 
 function ServiceCard({ detail }) {
-    return (
-      <Link to={`/vlogs/aggrNewCard/cardDetails/${detail.id}`} style={{ textDecoration: 'none' }}>
-        <Card sx={{ 
-          minWidth: 250, 
-          margin: 2, 
-          boxShadow: 3, 
+  return (
+    <Link to={`/vlogs/aggrNewCard/cardDetails/${detail.id}`} style={{ textDecoration: 'none' }}>
+      <Card
+        sx={{
+          width: 300, // Fixed width for consistent dimensions
+          height: 400, // Fixed height for consistent dimensions
+          margin: 2,
+          boxShadow: 3,
           borderRadius: 2,
-          zIndex: -1 // Set zIndex of the card
-        }}>
-          <CardMedia
-            component="img"
-            height="140" // Fixed height for consistent dimensions
-            image={detail.image}
-            alt={detail.title}
-            sx={{ objectFit: 'cover' }} // Maintain aspect ratio and cover the area
-          />
-          <CardContent>
-            <Typography variant="h6" fontWeight="bold">{detail.title}</Typography>
-            <Typography variant="body2" color="text.secondary">
-              {truncateText(detail.description, 100)} {/* Adjust length as needed */}
-            </Typography>
-          </CardContent>
-        </Card>
-      </Link>
-    );
+          zIndex: -1, // Set zIndex of the card
+          transition: 'transform 0.3s ease-in-out', // Smooth transition for scaling
+          '&:hover': {
+            transform: 'scale(1.05)', // Scale up slightly on hover
+          },
+        }}
+      >
+        <CardMedia
+          component="img"
+          sx={{
+            width: '100%', // Ensure it covers the entire width
+            height: 200, // Fixed height for consistent dimensions
+            objectFit: 'cover', // Maintain aspect ratio and cover the area
+          }}
+          image={detail.image}
+          alt={detail.title}
+        />
+        <CardContent>
+          <Typography variant="h6" fontWeight="bold">{detail.title}</Typography>
+          <Typography variant="body2" color="text.secondary">
+            {truncateText(detail.description, 100)} {/* Adjust length as needed */}
+          </Typography>
+        </CardContent>
+      </Card>
+    </Link>
+  );
 }
 
 function ServiceCarousel({ section }) {
@@ -70,11 +79,11 @@ function ServiceCarousel({ section }) {
         ))}
       </Box>
       <IconButton
-        sx={{ 
-          position: 'absolute', 
-          top: '50%', 
-          left: 10, 
-          transform: 'translateY(-50%)', 
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          left: 10,
+          transform: 'translateY(-50%)',
           zIndex: 1, // Ensure this is above the content
           backgroundColor: 'rgba(255, 255, 255, 0.8)',
           '&:hover': { backgroundColor: 'rgba(255, 255, 255, 1)' }
@@ -84,11 +93,11 @@ function ServiceCarousel({ section }) {
         <ArrowBackIosIcon />
       </IconButton>
       <IconButton
-        sx={{ 
-          position: 'absolute', 
-          top: '50%', 
-          right: 10, 
-          transform: 'translateY(-50%)', 
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          right: 10,
+          transform: 'translateY(-50%)',
           zIndex: 1, // Ensure this is above the content
           backgroundColor: 'rgba(255, 255, 255, 0.8)',
           '&:hover': { backgroundColor: 'rgba(255, 255, 255, 1)' }
