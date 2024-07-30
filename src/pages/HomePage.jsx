@@ -148,6 +148,7 @@ const HomePage = () => {
   ];
 
   return (
+    <div className="mt-28">
     <Container 
       style={{ 
         marginTop: "15%", 
@@ -227,6 +228,7 @@ const HomePage = () => {
         </Grid>
       </Grid>
     </Container>
+    </div>
   );
 };
 
