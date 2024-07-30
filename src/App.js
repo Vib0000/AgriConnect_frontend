@@ -18,43 +18,41 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import ServiceCard from "./seevices/ServiceCard"
 import ServiceDetail from "./seevices/ServiceDetail"
+import { Footer } from "./pages/footer";
+import ContactPage from "./pages/contactpage";
+import About from "./pages/aboutus";
 
 function App() {
   return (
-    <>
-     <Announcement/>
-     <Navbar/>
+    <div className="app-container">
+      <Announcement />
+      <Navbar />
       <ThemeProvider theme={theme}>
-   
-       <CssBaseline />
-    <div>
-      
-      <Router>
-        <Routes>
-          {/* <Route path="/" element={<Hero />} /> */}
-          
-          <Route path="/" element={<HomePage />} />
-
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route  path="/himanshu1"  element={<MyPage/>}/>
-          <Route  path="/services"  element={<Services/>}/>
-          <Route path="/seviceCard" element={<ServiceCard />} />
-          <Route path="/service/:id" element={<ServiceDetail />} />
-          <Route  path="/yourservices"  element={<YourServices/>}/>
-          <Route  path="/cropdetail"  element={<CropDetail/>}/>
-          <Route  path="/wether"  element={<WeatherDetail/>}/>
-          <Route path="/vlogs/aggrNewCard" element={<AggrNews/>} />
-          <Route path="/vlogs/aggrNewCard/cardDetails/:id" element={<AggrNewDetails/>} />
-          <Route  path="/yourservices"  element={<YourServices/>}/>
-          <Route  path="/cropdetail"  element={<CropDetail/>}/>
-          <Route  path="/weather"  element={<WeatherDetail/>}/>
-
-        </Routes>
-      </Router>
+        <CssBaseline />
+        <div className="main-content">
+          <Router>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/himanshu1" element={<MyPage />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/seviceCard" element={<ServiceCard />} />
+              <Route path="/service/:id" element={<ServiceDetail />} />
+              <Route path="/yourservices" element={<YourServices />} />
+              <Route path="/cropdetail" element={<CropDetail />} />
+              <Route path="/wether" element={<WeatherDetail />} />
+              <Route path="/vlogs/aggrNewCard" element={<AggrNews />} />
+              <Route path="/vlogs/aggrNewCard/cardDetails/:id" element={<AggrNewDetails />} />
+              <Route path="/weather" element={<WeatherDetail />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/about" element={<About />} />
+            </Routes>
+          </Router>
+        </div>
+      </ThemeProvider>
+      <Footer />
     </div>
-    </ThemeProvider>
-    </>
   );
 }
 

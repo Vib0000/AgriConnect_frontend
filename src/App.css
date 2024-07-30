@@ -37,23 +37,36 @@
   }
 }
 /* App.css */
-
+/* 
 .announcement {
   position: sticky;
   top: 0;
-  z-index: 1000; /* Higher z-index to stay above other content */
-  background-color: #ffcc00; /* Background color for visibility */
+  z-index: 1000; 
+  background-color: #ffcc00; 
   padding: 10px;
   text-align: center;
 }
 
 .navbar {
   position: sticky;
-  top: 50px; /* Adjust based on the height of the announcement bar */
-  z-index: 1000; /* Higher z-index to stay above other content */
-  background-color: #ffffff; /* Background color for visibility */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
-}
+  top: 50px; 
+  z-index: 1000; 
+  background-color: #ffffff; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+} */
 
 /* Additional styles for other components if necessary */
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+}

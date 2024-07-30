@@ -12,6 +12,8 @@ import farmingExpert from '../Assets/farmingExpert.mp4';
 import crops from '../Assets/crops.mp4';
 import agriNews from '../Assets/agrinews.mp4';
 
+import { Footer } from "./footer";
+
 const VideoBackground = styled('video')({
   position: 'fixed',
   top: 0,
@@ -194,10 +196,11 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="mt-28">
+    <>
+    <div>
     <Container 
       style={{ 
-        marginTop: "15%", 
+        marginTop: "2%", 
         position: 'relative',
         backgroundColor: 'transparent',
         padding: 0,
@@ -281,8 +284,12 @@ const HomePage = () => {
           </Grow>
         </Grid>
       </Grid>
+     
     </Container>
+    
     </div>
+    <div className="mb-4"></div>
+     </>
   );
 };
 

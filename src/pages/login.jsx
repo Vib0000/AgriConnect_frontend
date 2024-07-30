@@ -57,9 +57,9 @@ export const Login = () => {
 
   return (
     <>
-      <Announcement />
-      <Navbar />
-      <div className="min-h-screen bg-gradient-to-br flex items-center justify-center">
+      {/* <Announcement />
+      <Navbar /> */}
+      <div className="min-h-screen bg-gradient-to-br flex -mt-24 items-center justify-center">
         <div className="bg-cyan-50 p-8 rounded-lg shadow-lg w-full md:max-w-md">
           <h2 className="text-3xl font-extrabold text-center text-gray-900">
             Login
