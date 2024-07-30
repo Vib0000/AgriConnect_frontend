@@ -10,6 +10,15 @@ import Services from './pages/services';
 import { CropDetail } from "./pages/cropdetail";
 import { WeatherDetail } from "./pages/weather";
 import YourServices from './pages/yourServices';
+import AggrNewDetails from './vlogs/aggrNews/AggrNewDetails';
+import AggrNews from './vlogs/aggrNews/AggrNews';
+import HomePage from "./pages/HomePage";
+import theme from "./pages/theme";
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import ServiceCard from "./seevices/ServiceCard"
+import ServiceDetail from "./seevices/ServiceDetail"
+
 function App() {
   return (
     <>
@@ -31,10 +40,15 @@ function App() {
           <Route  path="/himanshu1"  element={<MyPage/>}/>
           <Route  path="/services"  element={<Services/>}/>
           <Route path="/seviceCard" element={<ServiceCard />} />
-        <Route path="/service/:id" element={<ServiceDetail />} />
+          <Route path="/service/:id" element={<ServiceDetail />} />
           <Route  path="/yourservices"  element={<YourServices/>}/>
           <Route  path="/cropdetail"  element={<CropDetail/>}/>
           <Route  path="/wether"  element={<WeatherDetail/>}/>
+          <Route path="/vlogs/aggrNewCard" element={<AggrNews/>} />
+          <Route path="/vlogs/aggrNewCard/cardDetails/:id" element={<AggrNewDetails/>} />
+          <Route  path="/yourservices"  element={<YourServices/>}/>
+          <Route  path="/cropdetail"  element={<CropDetail/>}/>
+          <Route  path="/weather"  element={<WeatherDetail/>}/>
 
         </Routes>
       </Router>

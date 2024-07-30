@@ -68,7 +68,7 @@ function ServiceCarousel({ category }) {
           top: '50%', 
           left: 10, 
           transform: 'translateY(-50%)', 
-          zIndex: 1, // Ensure this is above the content
+          zIndex: -1, // Ensure this is above the content
           backgroundColor: 'rgba(255, 255, 255, 0.8)',
           '&:hover': { backgroundColor: 'rgba(255, 255, 255, 1)' }
         }}
@@ -82,7 +82,7 @@ function ServiceCarousel({ category }) {
           top: '50%', 
           right: 10, 
           transform: 'translateY(-50%)', 
-          zIndex: 1, // Ensure this is above the content
+          zIndex: -1, // Ensure this is above the content
           backgroundColor: 'rgba(255, 255, 255, 0.8)',
           '&:hover': { backgroundColor: 'rgba(255, 255, 255, 1)' }
         }}
