@@ -171,7 +171,7 @@ const HomePage = () => {
         left: '50%',
         transform: 'translateX(-50%)',
         width: '100%',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        marginTop:'5%',
         padding: '10px 0',
       }}>
         Welcome to the Farming Services Portal
