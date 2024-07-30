@@ -73,7 +73,7 @@ const PlankBox1 = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
   width: '500px', // Increased width
   margin: '0 auto',
-  animation: `${float1} 2s ease-in-out `, // Increased speed
+  animation: `${float1} 1.5s ease-in-out `, // Increased speed
   "&:hover": {
     transform: "scale(1.05)",
   },
