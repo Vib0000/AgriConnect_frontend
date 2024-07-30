@@ -10,11 +10,6 @@ import Services from './pages/services';
 import { CropDetail } from "./pages/cropdetail";
 import { WeatherDetail } from "./pages/weather";
 import YourServices from './pages/yourServices';
-import HomePage from "./pages/HomePage";
-import theme from "./pages/theme";
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-
 function App() {
   return (
     <>
@@ -35,9 +30,11 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route  path="/himanshu1"  element={<MyPage/>}/>
           <Route  path="/services"  element={<Services/>}/>
+          <Route path="/seviceCard" element={<ServiceCard />} />
+        <Route path="/service/:id" element={<ServiceDetail />} />
           <Route  path="/yourservices"  element={<YourServices/>}/>
           <Route  path="/cropdetail"  element={<CropDetail/>}/>
-          <Route  path="/weather"  element={<WeatherDetail/>}/>
+          <Route  path="/wether"  element={<WeatherDetail/>}/>
 
         </Routes>
       </Router>
