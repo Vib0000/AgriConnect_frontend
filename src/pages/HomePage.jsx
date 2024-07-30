@@ -73,22 +73,22 @@ const PlankBox1 = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
   width: '500px', // Increased width
   margin: '0 auto',
-  animation: `${float1} 2s ease-in-out infinite`, // Increased speed
+  animation: `${float1} 2s ease-in-out `, // Increased speed
   "&:hover": {
     transform: "scale(1.05)",
   },
 }));
 
 const PlankBox2 = styled(PlankBox1)({
-  animation: `${float2} 1.5s ease-in-out infinite`, // Increased speed
+  animation: `${float2} 1.5s ease-in-out`, // Increased speed
 });
 
 const PlankBox3 = styled(PlankBox1)({
-  animation: `${float3} 2.5s ease-in-out infinite`, // Increased speed
+  animation: `${float3} 1.5s ease-in-out `, // Increased speed
 });
 
 const PlankBox4 = styled(PlankBox1)({
-  animation: `${float4} 3s ease-in-out infinite`, // Increased speed
+  animation: `${float4} 1.5s ease-in-out `, // Increased speed
 });
 
 const BlogBox = styled(Box)(({ theme }) => ({
