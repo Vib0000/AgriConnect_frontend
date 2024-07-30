@@ -210,15 +210,7 @@ const HomePage = () => {
       </VideoBackground>
     
       <Typography variant="h3" align="center" gutterBottom style={{ 
-        color: '#fff', 
-        zIndex: 1, 
-        position: 'fixed',
-        top: 0,
-        left: '50%',
-        transform: 'translateX(-50%)',
-        width: '100%',
-        marginTop:'5%',
-        padding: '10px 0',
+       color:'white'
       }}>
         Welcome to the Farming Services Portal
       </Typography>
