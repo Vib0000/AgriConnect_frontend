@@ -18,8 +18,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 function App() {
   return (
     <>
-     {/* <Announcement/>
-     <Navbar/> */}
+     <Announcement/>
+     <Navbar/>
       <ThemeProvider theme={theme}>
    
        <CssBaseline />
