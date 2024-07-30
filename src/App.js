@@ -7,39 +7,39 @@ import MyPage from "./pages/himanshu1";
 import Announcement from "./pages/anouncement";
 import { Navbar } from "./pages/navbar";
 import Services from './pages/services';
-import ServiceCard from "./seevices/ServiceCard";
-import ServiceDetail from './seevices/ServiceDetail';
 import { CropDetail } from "./pages/cropdetail";
 import { WeatherDetail } from "./pages/weather";
 import YourServices from './pages/yourServices';
-import AggrNewDetails from './vlogs/aggrNews/AggrNewDetails';
-import AggrNews from './vlogs/aggrNews/AggrNews';
 function App() {
   return (
     <>
-
-    <Announcement/>
-       <Navbar/>
-    { 
-      <div>
+     <Announcement/>
+     <Navbar/>
+      <ThemeProvider theme={theme}>
+   
+       <CssBaseline />
+    <div>
       
       <Router>
         <Routes>
-          <Route path="/" element={<Hero />} />
+          {/* <Route path="/" element={<Hero />} /> */}
+          
+          <Route path="/" element={<HomePage />} />
+
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route  path="/himanshu1"  element={<MyPage/>}/>
           <Route  path="/services"  element={<Services/>}/>
           <Route path="/seviceCard" element={<ServiceCard />} />
-          <Route path="/service/:id" element={<ServiceDetail />} />
+        <Route path="/service/:id" element={<ServiceDetail />} />
           <Route  path="/yourservices"  element={<YourServices/>}/>
           <Route  path="/cropdetail"  element={<CropDetail/>}/>
           <Route  path="/wether"  element={<WeatherDetail/>}/>
-          <Route path="/vlogs/aggrNewCard" element={<AggrNews/>} />
-          <Route path="/vlogs/aggrNewCard/cardDetails/:id" element={<AggrNewDetails/>} />
+
         </Routes>
       </Router>
-    </div>}
+    </div>
+    </ThemeProvider>
     </>
   );
 }
