@@ -1,6 +1,6 @@
 import React from "react";
-import { Box, Typography, Container, Button, Grid, Paper } from "@mui/material";
-import { styled } from "@mui/system";
+import { Box, Typography, Container, Button, Grid, Paper, Fade, Grow } from "@mui/material";
+import { styled, keyframes } from "@mui/system";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -22,16 +22,40 @@ const VideoBackground = styled('video')({
   zIndex: -1,
 });
 
+const float1 = keyframes`
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-100px); }
+  100% { transform: translateX(0); }
+`;
+
+const float2 = keyframes`
+  0% { transform: translateX(0); }
+  50% { transform: translateX(100px); }
+  100% { transform: translateX(0); }
+`;
+
+const float3 = keyframes`
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-100px); }
+  100% { transform: translateX(0); }
+`;
+
+const float4 = keyframes`
+  0% { transform: translateX(0); }
+  50% { transform: translateX(100px); }
+  100% { transform: translateX(0); }
+`;
+
 const MainBox = styled(Box)(({ theme }) => ({
-  display: "grid",
-  gridTemplateColumns: "1fr",
+  display: 'flex',
+  flexDirection: 'column',
   gap: theme.spacing(2),
   marginBottom: theme.spacing(4),
   zIndex: 1,
   position: 'relative',
 }));
 
-const PlankBox = styled(Box)(({ theme }) => ({
+const PlankBox1 = styled(Box)(({ theme }) => ({
   padding: theme.spacing(2),
   textAlign: "center",
   background: `url(${imgagebg}) no-repeat center center`,
@@ -45,14 +69,27 @@ const PlankBox = styled(Box)(({ theme }) => ({
   transition: "transform 0.3s ease-in-out",
   display: 'flex',
   flexDirection: 'column',
-  width: '450px',
-  marginLeft: '33%',
   alignItems: 'center',
   justifyContent: 'center',
+  width: '500px', // Increased width
+  margin: '0 auto',
+  animation: `${float1} 2s ease-in-out infinite`, // Increased speed
   "&:hover": {
     transform: "scale(1.05)",
   },
 }));
+
+const PlankBox2 = styled(PlankBox1)({
+  animation: `${float2} 1.5s ease-in-out infinite`, // Increased speed
+});
+
+const PlankBox3 = styled(PlankBox1)({
+  animation: `${float3} 2.5s ease-in-out infinite`, // Increased speed
+});
+
+const PlankBox4 = styled(PlankBox1)({
+  animation: `${float4} 3s ease-in-out infinite`, // Increased speed
+});
 
 const BlogBox = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -67,10 +104,14 @@ const BlogBox = styled(Box)(({ theme }) => ({
   zIndex: 1,
   position: 'relative',
   overflow: 'hidden',
-  width: 500,
+  width: 550, // Increased width
   height: 400,
   padding: '0 15px',
   margin: theme.spacing(2),
+  transition: "transform 0.3s ease-in-out",
+  "&:hover": {
+    transform: "scale(1.05)",
+  },
 }));
 
 const ExploreButton = styled(Button)(({ theme }) => ({
@@ -86,6 +127,7 @@ const StyledVideo = styled('video')({
   width: '100%',
   height: '250px',
   objectFit: 'cover',
+  borderRadius: '4px',
 });
 
 const InfoBox = styled(Paper)(({ theme }) => ({
@@ -95,6 +137,10 @@ const InfoBox = styled(Paper)(({ theme }) => ({
   background: 'rgba(255, 255, 255, 0.9)',
   borderRadius: theme.shape.borderRadius,
   boxShadow: theme.shadows[3],
+  transition: "transform 0.3s ease-in-out",
+  "&:hover": {
+    transform: "scale(1.05)",
+  },
 }));
 
 const HomePage = () => {
@@ -177,53 +223,69 @@ const HomePage = () => {
         Welcome to the Farming Services Portal
       </Typography>
       <MainBox>
-        <PlankBox>
-          <Typography variant="h5">Service Provide</Typography>
-        </PlankBox>
-        <PlankBox>
-          <Typography variant="h5">Service Receive</Typography>
-        </PlankBox>
-        <PlankBox>
-          <Typography variant="h5">Crop Detail</Typography>
-        </PlankBox>
-        <PlankBox>
-          <Typography variant="h5">Weather Report</Typography>
-        </PlankBox>
+        <Fade in={true} timeout={1000}>
+          <PlankBox1>
+            <Typography variant="h5">Service Provide</Typography>
+          </PlankBox1>
+        </Fade>
+        <Fade in={true} timeout={1500}>
+          <PlankBox2>
+            <Typography variant="h5">Service Receive</Typography>
+          </PlankBox2>
+        </Fade>
+        <Fade in={true} timeout={2000}>
+          <PlankBox3>
+            <Typography variant="h5">Crop Detail</Typography>
+          </PlankBox3>
+        </Fade>
+        <Fade in={true} timeout={2500}>
+          <PlankBox4>
+            <Typography variant="h5">Weather Report</Typography>
+          </PlankBox4>
+        </Fade>
       </MainBox>
       <Typography variant="h4" align="center" gutterBottom style={{ color: '#fff', zIndex: 1, position: 'relative' }}>
         Farming Blogs
       </Typography>
       <Slider {...settings}>
         {blogSections.map((section, index) => (
-          <BlogBox key={index}>
-            <Typography variant="h5">{section.title}</Typography>
-            <StyledVideo controls>
-              <source src={section.video} type="video/mp4" />
-              Your browser does not support the video tag.
-            </StyledVideo>
-            <Typography>{section.description}</Typography>
-            <ExploreButton variant="contained">Explore</ExploreButton>
-          </BlogBox>
+          <Grow in={true} key={index} timeout={index * 500}>
+            <BlogBox>
+              <Typography variant="h5">{section.title}</Typography>
+              <StyledVideo controls>
+                <source src={section.video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </StyledVideo>
+              <Typography>{section.description}</Typography>
+              <ExploreButton variant="contained">Explore</ExploreButton>
+            </BlogBox>
+          </Grow>
         ))}
       </Slider>
       <Grid container spacing={4} style={{ marginTop: '20px' }}>
         <Grid item xs={12} sm={6} md={4}>
-          <InfoBox>
-            <Typography variant="h6">Market Prices</Typography>
-            <Typography>Get the latest market prices for various crops.</Typography>
-          </InfoBox>
+          <Grow in={true} timeout={1000}>
+            <InfoBox>
+              <Typography variant="h6">Market Prices</Typography>
+              <Typography>Get the latest market prices for various crops.</Typography>
+            </InfoBox>
+          </Grow>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <InfoBox>
-            <Typography variant="h6">Farming Tips</Typography>
-            <Typography>Learn the best practices for maximizing your yield.</Typography>
-          </InfoBox>
+          <Grow in={true} timeout={1500}>
+            <InfoBox>
+              <Typography variant="h6">Farming Tips</Typography>
+              <Typography>Learn the best practices for maximizing your yield.</Typography>
+            </InfoBox>
+          </Grow>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <InfoBox>
-            <Typography variant="h6">Community Forum</Typography>
-            <Typography>Join the discussion with other farmers.</Typography>
-          </InfoBox>
+          <Grow in={true} timeout={2000}>
+            <InfoBox>
+              <Typography variant="h6">Community Forum</Typography>
+              <Typography>Join the discussion with other farmers.</Typography>
+            </InfoBox>
+          </Grow>
         </Grid>
       </Grid>
     </Container>
