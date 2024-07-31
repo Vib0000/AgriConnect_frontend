@@ -221,22 +221,22 @@ const HomePage = () => {
       <MainBox>
         <Fade in={true} timeout={1000}>
           <PlankBox1>
-            <Typography variant="h5">Service Provide</Typography>
+            <Typography variant="h5"><a href="/yourservices">Offer Services</a></Typography>
           </PlankBox1>
         </Fade>
         <Fade in={true} timeout={1500}>
           <PlankBox2>
-            <Typography variant="h5">Service Receive</Typography>
+            <Typography variant="h5"><a href="/seviceCard">Find Service</a></Typography>
           </PlankBox2>
         </Fade>
         <Fade in={true} timeout={2000}>
           <PlankBox3>
-            <Typography variant="h5">Crop Detail</Typography>
+            <Typography variant="h5"><a href="/cropdetail">Crop Detail</a></Typography>
           </PlankBox3>
         </Fade>
         <Fade in={true} timeout={2500}>
           <PlankBox4>
-            <Typography variant="h5">Weather Report</Typography>
+            <Typography variant="h5"><a href="/weather">Weather Report</a></Typography>
           </PlankBox4>
         </Fade>
       </MainBox>
@@ -253,7 +253,7 @@ const HomePage = () => {
                 Your browser does not support the video tag.
               </StyledVideo>
               <Typography>{section.description}</Typography>
-              <ExploreButton variant="contained">Explore</ExploreButton>
+              <ExploreButton variant="contained"><a href="/vlogs/aggrNewCard">Explore</a></ExploreButton>
             </BlogBox>
           </Grow>
         ))}

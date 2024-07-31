@@ -1,14 +1,17 @@
-import React, { useContext } from "react";
-import { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { FaSearch, FaBell, FaUser } from "react-icons/fa";
 import { server, Context } from "../index";
 import Logo from "../Assets/Logo.png";
-import { FaSearch, FaBell, FaUser } from "react-icons/fa";
 
 export const Navbar = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate(); // Hook for navigation
+  const location = useLocation(); // Hook to get current location
+
+  const isHomePage = location.pathname === "/";
 
   const logoutHandler = async () => {
     try {
@@ -24,7 +27,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="w-full flex items-center justify-center px-3 bg-zinc-100 z-10"> {/* Removed fixed and top-10 */}
+    <div className="w-full flex items-center justify-center px-3 bg-zinc-100 z-10">
       <div className="w-5/6 flex justify-between items-center">
         <div className="gap-24 flex justify-between items-center">
           <div className="md:hidden relative">
@@ -45,18 +48,28 @@ export const Navbar = () => {
                 </a>
               </li>
               <li className="w-full md:w-auto">
+                <a href="#" className="block p-2 md:p-0">
+                  Notification
+                </a>
+              </li>
+              <li className="w-full md:w-auto">
                 <a href="/contact" className="block p-2 md:p-0">
                   Contact us
                 </a>
               </li>
               <li className="w-full md:w-auto">
-                <a href="#about-us" className="block p-2 md:p-0">
+                <a href="/about" className="block p-2 md:p-0">
                   About Us
                 </a>
               </li>
               <li className="w-full md:w-auto">
-                <a href="#about-us" className="block p-2 md:p-0">
+                <a href="/vlogs/aggrNewCard" className="block p-2 md:p-0">
                   Blogs
+                </a>
+              </li>
+              <li className="w-full md:w-auto">
+                <a href="/#" className="block p-2 md:p-0">
+                  Profile
                 </a>
               </li>
               <li className="w-full md:w-auto">
@@ -76,50 +89,60 @@ export const Navbar = () => {
                   </a>
                 )}
               </li>
-             
             </ul>
           </div>
           <div className="md:right-0">
             <a href="/" className="right-0 flex items-center gap-3">
-              <img src={Logo} alt="Logo" className="md:w-36 w-28 h-28 mr-2" />
+              <img src={Logo} alt="Logo" className="md:w-36 w-24 h-20 md:h-28 mr-2" />
             </a>
           </div>
         </div>
         <div>
           <ul className="hidden md:flex gap-4 items-center">
-           <li >
-           <div className="hidden md:flex items-center flex-grow mx-4">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="w-full py-2 px-4 border border-gray-300 rounded-l-md"
-            // value={searchTerm}
-            // onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <button className="bg-blue-500 text-white px-4 py-3 rounded-r-md">
-            <FaSearch />
-          </button>
-        </div>
-           </li>
-     <li>
-           <div className="flex items-center gap-4">
-          <button className="relative">
-            <FaBell className="text-gray-600 text-xl" />
-            <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">3</span> {/* Example notification count */}
-          </button>
-    
-        </div>
-        </li>
-        
-
+          {!isHomePage && (
+              <li>
+                <button
+                  className="flex items-center justify-center h-10 w-32 rounded-md bg-blue-500 text-white hover:bg-gray-300 hover:text-black"
+                  onClick={() => navigate(-1)} // Go back to the previous page
+                >
+                  Back
+                </button>
+              </li>
+            )}
+            <li>
+              <div className="hidden md:flex items-center flex-grow mx-4">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="w-full py-2 px-4 border border-gray-300 rounded-l-md"
+                />
+                <button className="bg-blue-500 text-white px-4 py-3 rounded-r-md">
+                  <FaSearch />
+                </button>
+              </div>
+            </li>
+            <li>
+              <div className="flex items-center gap-4">
+                <button className="relative">
+                  <FaBell className="text-gray-600 text-xl" />
+                  <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">
+                    3
+                  </span>
+                </button>
+              </div>
+            </li>
             <li>
               <a href="/">Home</a>
             </li>
             <li>
               <a href="/contact">Contact Us</a>
             </li>
-            <li>About Us</li>
-            <li>Blogs</li>
+            <li>
+              <a href="/about">About Us</a>
+            </li>
+            <li>
+              <a href="/vlogs/aggrNewCard"> Blogs</a>
+            </li>
             <li>
               {isAuthenticated ? (
                 <button
@@ -137,13 +160,13 @@ export const Navbar = () => {
               )}
             </li>
             <li>
-        <div className="flex items-center gap-4">
-          <button>
-            <FaUser className="text-gray-600 text-xl" />
-          </button>
-        </div>
-        </li>
-           
+              <div className="flex items-center gap-4">
+                <button>
+                  <FaUser className="text-gray-600 text-xl" />
+                </button>
+              </div>
+            </li>
+            
           </ul>
         </div>
       </div>

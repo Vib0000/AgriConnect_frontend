@@ -112,6 +112,7 @@ function ServiceCarousel({ section }) {
 
 function AggrNews() {
   return (
+    <div className='-mt-40'>
     <Box sx={{ width: '100%', padding: 2 }}>
       {AggrNewsData[0].content.map((section, index) => (
         <Box key={index} sx={{ marginTop: index === 0 ? '200px' : 0 }}>
@@ -119,6 +120,7 @@ function AggrNews() {
         </Box>
       ))}
     </Box>
+    </div>
   );
 }
 

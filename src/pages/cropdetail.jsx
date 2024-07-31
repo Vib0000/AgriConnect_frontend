@@ -56,7 +56,7 @@ export const CropDetail = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 pt-16 mt-36">
+    <div className="container mx-auto p-4 pt-16 ">
       <div className="mb-6 relative">
         <input
           type="text"

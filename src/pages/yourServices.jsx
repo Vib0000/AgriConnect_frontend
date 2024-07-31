@@ -485,7 +485,8 @@ const YourServices = () => {
   };
 
   return (
-    <ServicesContainer>
+    <div className='md:-mt-44 -mt-12'>
+    <ServicesContainer >
       <Typography variant="h4" gutterBottom>
         Your Services
       </Typography>
@@ -622,6 +623,7 @@ const YourServices = () => {
         </ModalContainer>
       </Modal>
     </ServicesContainer>
+    </div>
   );
 };
 

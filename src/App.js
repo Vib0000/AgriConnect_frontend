@@ -24,13 +24,13 @@ import About from "./pages/aboutus";
 
 function App() {
   return (
-    <div className="app-container">
-      <Announcement />
-      <Navbar />
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <div className="main-content">
-          <Router>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <div className="app-container">
+          <Announcement />
+          <Navbar />
+          <div className="main-content">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<Login />} />
@@ -48,11 +48,11 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/about" element={<About />} />
             </Routes>
-          </Router>
+          </div>
+          <Footer />
         </div>
-      </ThemeProvider>
-      <Footer />
-    </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

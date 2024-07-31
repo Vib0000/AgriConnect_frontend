@@ -96,6 +96,7 @@ function ServiceCarousel({ category }) {
 
 function ServiceList() {
   return (
+    <div className='-mt-40'>
     <Box sx={{ width: '100%', padding: 2}}>
       {serviceCategories.map((category, index) => (
         <Box key={index} sx={{ marginTop: index === 0 ? '200px' : 0 }}>
@@ -103,6 +104,7 @@ function ServiceList() {
         </Box>
       ))}
     </Box>
+    </div>
   );
 }
 

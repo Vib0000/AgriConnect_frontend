@@ -4,7 +4,7 @@
         <p className="text-black text-center">
           Navigate your career path with tailored expert advice
         </p>
-       <button className="p-2 text-blue-500">Contact Expert</button>
+       <button className="p-2 text-blue-500"><a href="/contact">Contact Expert</a></button>
           
         
       </div>

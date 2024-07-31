@@ -69,7 +69,7 @@ export const WeatherDetail = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-4 mt-40">
+    <div className="max-w-4xl mx-auto p-4 mt-2">
       <h1 className="text-2xl font-bold mb-4">Weather Details for Farming</h1>
 
       <div className="mb-4">

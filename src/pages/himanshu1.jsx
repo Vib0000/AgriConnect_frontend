@@ -202,6 +202,7 @@ const MyPage = () => {
   };
 
   return (
+    <div className='md:-mt-40 -mt-12' >
     <FormContainer>
       <Typography variant="h4" align="center" gutterBottom color="#1b5e20">
         Add Services
@@ -370,6 +371,7 @@ const MyPage = () => {
         </SubmitButton>
       </form>
     </FormContainer>
+    </div>
   );
 };
 
