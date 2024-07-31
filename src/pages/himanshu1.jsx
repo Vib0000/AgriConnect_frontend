@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/himanshu1.css';
 import { styled } from '@mui/material/styles';
+import img1 from '../Assets/cro6.jpeg';
 import {
   FormControl,
   InputLabel,
@@ -11,7 +12,6 @@ import {
   Typography,
   Box,
   Chip,
-  Rating,
   FormGroup as MuiFormGroup,
   FormControlLabel,
   Radio,
@@ -42,7 +42,7 @@ const FormContainer = styled(Box)(({ theme }) => ({
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundImage: 'url(/path-to-your-farming-background-image.jpg)', // Replace with your image path
+    // Replace with your image path
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     opacity: 0.6,
@@ -103,13 +103,6 @@ const ChipStyled = styled(Chip)(({ theme }) => ({
   },
 }));
 
-const RatingStyled = styled(Rating)(({ theme }) => ({
-  '& .MuiRating-iconFilled': {
-    color: '#66bb6a',
-  },
-  transition: 'color 0.3s',
-}));
-
 const TextFieldStyled = styled(TextField)(({ theme }) => ({
   '& .MuiInputLabel-outlined': {
     color: '#4caf50',
@@ -144,7 +137,6 @@ const MyPage = () => {
   const [charges, setCharges] = useState({});
   const [timing, setTiming] = useState({});
   const [availability, setAvailability] = useState("");
-  const [rating, setRating] = useState({});
   const [description, setDescription] = useState({});
   const [images, setImages] = useState({});
   const [preferredContact, setPreferredContact] = useState('phone');
@@ -177,17 +169,13 @@ const MyPage = () => {
     setDescription({ ...description, [service]: event.target.value });
   };
 
-  const handleRatingChange = (event, newValue, service) => {
-    setRating({ ...rating, [service]: newValue });
-  };
-
   const handleAvailabilityChange = (event) => {
     setAvailability(event.target.value);
   };
 
-  const handleImageChange = (event) => {
+  const handleImageChange = (event, service) => {
     const files = Array.from(event.target.files);
-    setImages(files);
+    setImages({ ...images, [service]: files });
   };
 
   const handlePreferredContactChange = (event) => {
@@ -203,174 +191,163 @@ const MyPage = () => {
 
   return (
     <div className='md:-mt-40 -mt-12' >
-    <FormContainer>
-      <Typography variant="h4" align="center" gutterBottom color="#1b5e20">
-        Add Services
-      </Typography>
-      <form onSubmit={handleSubmit}>
-        <FormGroup>
-          <FormControl fullWidth variant="outlined">
-            <InputLabel htmlFor="AOS">Area Of Services(सेवा का क्षेत्र)</InputLabel>
-            <Select
-              id="AOS"
-              multiple
-              value={selectedServices}
-              onChange={handleServiceChange}
-              renderValue={(selected) => (
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                  {selected.map((value) => (
-                    <ChipStyled
-                      key={value}
-                      label={value}
-                      onDelete={() => handleRemoveService(value)}
-                      deleteIcon={<CancelIcon />}
-                    />
-                  ))}
-                </div>
-              )}
-              MenuProps={{
-                PaperProps: {
-                  style: {
-                    maxHeight: 224,
-                    width: 250,
+      <FormContainer>
+        <Typography variant="h4" align="center" gutterBottom color="#1b5e20">
+          Add Services
+        </Typography>
+        <form onSubmit={handleSubmit}>
+          <FormGroup>
+            <FormControl fullWidth variant="outlined">
+              <InputLabel htmlFor="AOS">Area Of Services(सेवा का क्षेत्र)</InputLabel>
+              <Select
+                id="AOS"
+                multiple
+                value={selectedServices}
+                onChange={handleServiceChange}
+                renderValue={(selected) => (
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                    {selected.map((value) => (
+                      <ChipStyled
+                        key={value}
+                        label={value}
+                        onDelete={() => handleRemoveService(value)}
+                        deleteIcon={<CancelIcon />}
+                      />
+                    ))}
+                  </div>
+                )}
+                MenuProps={{
+                  PaperProps: {
+                    style: {
+                      maxHeight: 224,
+                      width: 250,
+                    },
                   },
-                },
-              }}
-              style={{ marginTop: 8 }}
-            >
-              {services.map((service, index) => (
-                <MenuItem key={index} value={service}>
-                  {service}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </FormGroup>
-        <FormGroup>
-          <TextFieldStyled
+                }}
+                style={{ marginTop: 8 }}
+              >
+                {services.map((service, index) => (
+                  <MenuItem key={index} value={service}>
+                    {service}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </FormGroup>
+          <FormGroup>
+            <TextFieldStyled
+              fullWidth
+              id="phone"
+              label="Phone"
+              type="number"
+              variant="outlined"
+              placeholder="Enter your phone number"
+            />
+          </FormGroup>
+          <FormGroup>
+            <TextFieldStyled
+              fullWidth
+              id="village"
+              label="Village Address"
+              variant="outlined"
+              value={village}
+              onChange={(e) => setVillage(e.target.value)}
+              placeholder="Enter your village address"
+            />
+          </FormGroup>
+          <FormGroup>
+            <TextFieldStyled
+              fullWidth
+              id="availability"
+              label="Availability"
+              variant="outlined"
+              value={availability}
+              onChange={handleAvailabilityChange}
+              placeholder="Enter your availability"
+            />
+          </FormGroup>
+          {selectedServices.map((service, index) => (
+            <ServiceDetails key={index}>
+              <Typography variant="h6" gutterBottom>
+                {service}
+              </Typography>
+              <FormGroup>
+                <TextFieldStyled
+                  fullWidth
+                  id={`charges-${service}`}
+                  label={`Charges for ${service}`}
+                  variant="outlined"
+                  value={charges[service] || ""}
+                  onChange={(event) => handleChargesChange(event, service)}
+                  placeholder={`Enter charges for ${service}`}
+                />
+              </FormGroup>
+              <FormGroup>
+                <TextFieldStyled
+                  fullWidth
+                  id={`timing-${service}`}
+                  label={`Timing for ${service}`}
+                  variant="outlined"
+                  value={timing[service] || ""}
+                  onChange={(event) => handleTimingChange(event, service)}
+                  placeholder={`Enter timing for ${service}`}
+                />
+              </FormGroup>
+              <FormGroup>
+                <TextFieldStyled
+                  fullWidth
+                  id={`description-${service}`}
+                  label={`Description for ${service}`}
+                  variant="outlined"
+                  value={description[service] || ""}
+                  onChange={(event) => handleDescriptionChange(event, service)}
+                  placeholder={`Enter description for ${service}`}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Typography variant="body1">Upload Images for {service}:</Typography>
+                <input
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={(event) => handleImageChange(event, service)}
+                />
+              </FormGroup>
+            </ServiceDetails>
+          ))}
+          <NewService>
+            <TextFieldStyled
+              fullWidth
+              id="new-service"
+              label="Add New Service"
+              variant="outlined"
+              value={newService}
+              onChange={(e) => setNewService(e.target.value)}
+              placeholder="Enter a new service"
+            />
+            <Button variant="contained" color="primary" onClick={handleAddService}>
+              Add
+            </Button>
+          </NewService>
+          <FormGroup>
+            <Typography variant="h6">Preferred Contact Method:</Typography>
+            <RadioGroup row value={preferredContact} onChange={handlePreferredContactChange}>
+              <FormControlLabel value="phone" control={<Radio />} label="Phone" />
+              <FormControlLabel value="email" control={<Radio />} label="Email" />
+            </RadioGroup>
+          </FormGroup>
+          <SubmitButton
+            type="submit"
             fullWidth
-            id="phone"
-            label="Phone"
-            type="number"
-            variant="outlined"
-            placeholder="Enter your phone number"
-          />
-        </FormGroup>
-        <FormGroup>
-          <TextFieldStyled
-            fullWidth
-            id="village"
-            label="Village Address"
-            variant="outlined"
-            value={village}
-            onChange={(e) => setVillage(e.target.value)}
-            placeholder="Enter your village address"
-          />
-        </FormGroup>
-        <NewService>
-          <TextFieldStyled
-            fullWidth
-            id="newService"
-            label="Add new service"
-            value={newService}
-            onChange={(e) => setNewService(e.target.value)}
-            variant="outlined"
-            placeholder="Enter new service"
-          />
-          <Button
             variant="contained"
             color="primary"
-            onClick={handleAddService}
-            disabled={!newService}
+            disabled={loading}
+            endIcon={loading && <CircularProgress size={24} />}
           >
-            Add
-          </Button>
-        </NewService>
-        {selectedServices.map((service, index) => (
-          <ServiceDetails key={index}>
-            <Typography variant="h6" color="#1b5e20">
-              {service}
-            </Typography>
-            <FormGroup>
-              <TextFieldStyled
-                fullWidth
-                label="Charges"
-                type="number"
-                variant="outlined"
-                value={charges[service] || ''}
-                onChange={(event) => handleChargesChange(event, service)}
-                placeholder={`Enter charges for ${service}`}
-              />
-            </FormGroup>
-            <FormGroup>
-              <TextFieldStyled
-                fullWidth
-                label="Timing"
-                type="text"
-                variant="outlined"
-                value={timing[service] || ''}
-                onChange={(event) => handleTimingChange(event, service)}
-                placeholder={`Enter timing for ${service}`}
-              />
-            </FormGroup>
-            <FormGroup>
-              <TextFieldStyled
-                fullWidth
-                label="Description"
-                type="text"
-                variant="outlined"
-                value={description[service] || ''}
-                onChange={(event) => handleDescriptionChange(event, service)}
-                placeholder={`Enter description for ${service}`}
-              />
-            </FormGroup>
-            <FormGroup>
-              <RatingStyled
-                name={`${service}-rating`}
-                value={rating[service] || 0}
-                onChange={(event, newValue) => handleRatingChange(event, newValue, service)}
-              />
-            </FormGroup>
-          </ServiceDetails>
-        ))}
-        <FormGroup>
-          <TextFieldStyled
-            fullWidth
-            id="availability"
-            label="Availability"
-            variant="outlined"
-            value={availability}
-            onChange={handleAvailabilityChange}
-            placeholder="Enter your availability"
-          />
-        </FormGroup>
-        <FormGroup>
-          <Typography component="legend">Upload Images</Typography>
-          <input
-            accept="image/*"
-            id="images"
-            multiple
-            type="file"
-            onChange={handleImageChange}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Typography component="legend">Preferred Contact Method</Typography>
-          <RadioGroup
-            aria-label="preferredContact"
-            name="preferredContact"
-            value={preferredContact}
-            onChange={handlePreferredContactChange}
-          >
-            <FormControlLabel value="phone" control={<Radio />} label="Phone" />
-            <FormControlLabel value="email" control={<Radio />} label="Email" />
-          </RadioGroup>
-        </FormGroup>
-        <SubmitButton type="submit" variant="contained" color="primary">
-          {loading ? <CircularProgress size={24} /> : 'Submit'}
-        </SubmitButton>
-      </form>
-    </FormContainer>
+            {loading ? 'Submitting...' : 'Submit'}
+          </SubmitButton>
+        </form>
+      </FormContainer>
     </div>
   );
 };
