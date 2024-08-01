@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import '../styles/himanshu1.css';
-import { styled } from '@mui/material/styles';
-import img1 from '../Assets/cro6.jpeg';
+import React, { useState } from "react";
+import "../styles/newservice.css";
+import { styled } from "@mui/material/styles";
+import img1 from "../Assets/cro6.jpeg";
 import {
   FormControl,
   InputLabel,
@@ -18,36 +18,36 @@ import {
   RadioGroup,
   CircularProgress,
   IconButton,
-} from '@mui/material';
-import { Cancel as CancelIcon } from '@mui/icons-material';
+} from "@mui/material";
+import { Cancel as CancelIcon } from "@mui/icons-material";
 
 // Styled components with enhanced and modern farming theme
 const FormContainer = styled(Box)(({ theme }) => ({
   maxWidth: 900,
-  margin: 'auto',
-  marginTop: '15%',
+  margin: "auto",
+  marginTop: "15%",
   padding: theme.spacing(5),
-  background: 'rgba(255, 255, 255, 0.95)',
+  background: "rgba(255, 255, 255, 0.95)",
   borderRadius: 16,
-  boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.3)',
+  boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.3)",
   border: `1px solid #a5d6a7`,
-  fontFamily: 'Arial, sans-serif',
-  position: 'relative',
-  overflow: 'hidden',
+  fontFamily: "Arial, sans-serif",
+  position: "relative",
+  overflow: "hidden",
   zIndex: 0, // Ensure the form is above other components
-  '&::before': {
+  "&::before": {
     content: '""',
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
     // Replace with your image path
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
     opacity: 0.6,
     zIndex: -10,
-    filter: 'brightness(0.6)',
+    filter: "brightness(0.6)",
   },
 }));
 
@@ -57,65 +57,65 @@ const FormGroup = styled(MuiFormGroup)(({ theme }) => ({
 }));
 
 const NewService = styled(FormGroup)(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
+  display: "flex",
+  alignItems: "center",
   gap: theme.spacing(1),
 }));
 
-const ServiceDetails = styled('div')(({ theme }) => ({
+const ServiceDetails = styled("div")(({ theme }) => ({
   marginTop: theme.spacing(3),
   padding: theme.spacing(3),
   borderRadius: 12,
-  backgroundColor: 'rgba(255, 255, 255, 0.9)',
-  boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.2)',
-  border: '1px solid #a5d6a7',
-  transition: 'transform 0.3s, box-shadow 0.3s',
-  '&:hover': {
-    transform: 'scale(1.03)',
-    boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.3)',
+  backgroundColor: "rgba(255, 255, 255, 0.9)",
+  boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.2)",
+  border: "1px solid #a5d6a7",
+  transition: "transform 0.3s, box-shadow 0.3s",
+  "&:hover": {
+    transform: "scale(1.03)",
+    boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.3)",
   },
 }));
 
 const SubmitButton = styled(Button)(({ theme }) => ({
   marginTop: theme.spacing(3),
   padding: theme.spacing(1.5, 3),
-  fontWeight: 'bold',
+  fontWeight: "bold",
   borderRadius: 12,
-  backgroundColor: '#66bb6a',
-  color: '#ffffff',
-  '&:hover': {
-    backgroundColor: '#388e3c',
-    boxShadow: '0px 12px 24px rgba(0, 0, 0, 0.2)',
+  backgroundColor: "#66bb6a",
+  color: "#ffffff",
+  "&:hover": {
+    backgroundColor: "#388e3c",
+    boxShadow: "0px 12px 24px rgba(0, 0, 0, 0.2)",
   },
-  transition: 'background-color 0.3s, box-shadow 0.3s',
+  transition: "background-color 0.3s, box-shadow 0.3s",
 }));
 
 const ChipStyled = styled(Chip)(({ theme }) => ({
   margin: theme.spacing(0.5),
-  backgroundColor: '#a5d6a7',
-  color: '#1b5e20',
+  backgroundColor: "#a5d6a7",
+  color: "#1b5e20",
   borderRadius: 20,
-  fontSize: '0.9rem',
-  transition: 'background-color 0.3s, transform 0.3s',
-  '&:hover': {
-    backgroundColor: '#81c784',
-    transform: 'scale(1.05)',
+  fontSize: "0.9rem",
+  transition: "background-color 0.3s, transform 0.3s",
+  "&:hover": {
+    backgroundColor: "#81c784",
+    transform: "scale(1.05)",
   },
 }));
 
 const TextFieldStyled = styled(TextField)(({ theme }) => ({
-  '& .MuiInputLabel-outlined': {
-    color: '#4caf50',
+  "& .MuiInputLabel-outlined": {
+    color: "#4caf50",
   },
-  '& .MuiOutlinedInput-root': {
-    '& fieldset': {
-      borderColor: '#4caf50',
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#4caf50",
     },
-    '&:hover fieldset': {
-      borderColor: '#66bb6a',
+    "&:hover fieldset": {
+      borderColor: "#66bb6a",
     },
-    '&.Mui-focused fieldset': {
-      borderColor: '#66bb6a',
+    "&.Mui-focused fieldset": {
+      borderColor: "#66bb6a",
     },
   },
 }));
@@ -139,7 +139,7 @@ const MyPage = () => {
   const [availability, setAvailability] = useState("");
   const [description, setDescription] = useState({});
   const [images, setImages] = useState({});
-  const [preferredContact, setPreferredContact] = useState('phone');
+  const [preferredContact, setPreferredContact] = useState("phone");
   const [loading, setLoading] = useState(false);
 
   const handleAddService = () => {
@@ -154,7 +154,9 @@ const MyPage = () => {
   };
 
   const handleRemoveService = (serviceToRemove) => {
-    setSelectedServices(selectedServices.filter(service => service !== serviceToRemove));
+    setSelectedServices(
+      selectedServices.filter((service) => service !== serviceToRemove)
+    );
   };
 
   const handleChargesChange = (event, service) => {
@@ -190,7 +192,7 @@ const MyPage = () => {
   };
 
   return (
-    <div className='md:-mt-40 -mt-12' >
+    <div className="md:-mt-40 -mt-12">
       <FormContainer>
         <Typography variant="h4" align="center" gutterBottom color="#1b5e20">
           Add Services
@@ -198,14 +200,16 @@ const MyPage = () => {
         <form onSubmit={handleSubmit}>
           <FormGroup>
             <FormControl fullWidth variant="outlined">
-              <InputLabel htmlFor="AOS">Area Of Services(सेवा का क्षेत्र)</InputLabel>
+              <InputLabel htmlFor="AOS">
+                Area Of Services(सेवा का क्षेत्र)
+              </InputLabel>
               <Select
                 id="AOS"
                 multiple
                 value={selectedServices}
                 onChange={handleServiceChange}
                 renderValue={(selected) => (
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                     {selected.map((value) => (
                       <ChipStyled
                         key={value}
@@ -305,7 +309,9 @@ const MyPage = () => {
                 />
               </FormGroup>
               <FormGroup>
-                <Typography variant="body1">Upload Images for {service}:</Typography>
+                <Typography variant="body1">
+                  Upload Images for {service}:
+                </Typography>
                 <input
                   type="file"
                   accept="image/*"
@@ -325,15 +331,31 @@ const MyPage = () => {
               onChange={(e) => setNewService(e.target.value)}
               placeholder="Enter a new service"
             />
-            <Button variant="contained" color="primary" onClick={handleAddService}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleAddService}
+            >
               Add
             </Button>
           </NewService>
           <FormGroup>
             <Typography variant="h6">Preferred Contact Method:</Typography>
-            <RadioGroup row value={preferredContact} onChange={handlePreferredContactChange}>
-              <FormControlLabel value="phone" control={<Radio />} label="Phone" />
-              <FormControlLabel value="email" control={<Radio />} label="Email" />
+            <RadioGroup
+              row
+              value={preferredContact}
+              onChange={handlePreferredContactChange}
+            >
+              <FormControlLabel
+                value="phone"
+                control={<Radio />}
+                label="Phone"
+              />
+              <FormControlLabel
+                value="email"
+                control={<Radio />}
+                label="Email"
+              />
             </RadioGroup>
           </FormGroup>
           <SubmitButton
@@ -344,7 +366,7 @@ const MyPage = () => {
             disabled={loading}
             endIcon={loading && <CircularProgress size={24} />}
           >
-            {loading ? 'Submitting...' : 'Submit'}
+            {loading ? "Submitting..." : "Submit"}
           </SubmitButton>
         </form>
       </FormContainer>

@@ -8,7 +8,7 @@ import {
   DialogContent,
   DialogActions,
 } from '@mui/material';
-import './Services.css'; // Import the CSS file
+import '../styles/Services.css'; // Import the CSS file
 
 const Services = () => {
   const [openDialog, setOpenDialog] = useState(false);
