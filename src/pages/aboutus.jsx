@@ -3,28 +3,28 @@ import React from 'react';
 // Sample data for team members
 const teamMembers = [
   {
-    name: 'John Doe',
-    role: 'CEO',
+    name: 'Vibhav Mishra',
+    role: 'Team Leader',
     imageUrl: 'https://cdn.pixabay.com/photo/2018/08/28/13/29/avatar-3637561_1280.png',
-    description: 'John is the visionary behind our company.',
+    description: 'Vibhav is the visionary behind our company.',
   },
   {
-    name: 'Jane Smith',
+    name: 'Manish Sharma',
     role: 'CTO',
     imageUrl: 'https://cdn.pixabay.com/photo/2018/08/28/13/29/avatar-3637561_1280.png',
-    description: 'Jane ensures our technology stays ahead of the curve.',
+    description: 'Manish ensures our technology stays ahead of the curve.',
   },
   {
-    name: 'Emily Johnson',
+    name: 'Himanshu shukla',
     role: 'CMO',
     imageUrl: 'https://cdn.pixabay.com/photo/2018/08/28/13/29/avatar-3637561_1280.png',
-    description: 'Emily leads our marketing efforts with creativity and passion.',
+    description: 'Himanshu leads our marketing efforts with creativity and passion.',
   },
   {
-    name: 'Michael Brown',
+    name: 'Amit kumar',
     role: 'COO',
     imageUrl: 'https://cdn.pixabay.com/photo/2018/08/28/13/29/avatar-3637561_1280.png',
-    description: 'Michael keeps our operations running smoothly.',
+    description: 'Amit keeps our operations running smoothly.',
   },
 ];
 

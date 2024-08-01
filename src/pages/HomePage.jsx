@@ -1,5 +1,16 @@
 import React from "react";
-import { Box, Typography, Container, Button, Grid, Paper, Fade, Grow, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Container,
+  Button,
+  Grid,
+  Paper,
+  Fade,
+  Grow,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { styled, keyframes } from "@mui/system";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -83,7 +94,7 @@ const PlankBox1 = styled(Box)(({ theme }) => ({
 }));
 
 const PlankBox2 = styled(PlankBox1)({
-  animation: `${float2} 1.5s ease-in-out`, // Increased speed
+  animation: `${float2} 1.5s ease-in-out`,
 });
 
 const PlankBox3 = styled(PlankBox1)({
@@ -111,7 +122,7 @@ const BlogBox = styled(Box)(({ theme }) => ({
   maxWidth: '550px',
   height: '400px',
   padding: '0 15px',
-  margin: theme.spacing(2),
+  margin: '0 auto', // Center align the box
   transition: "transform 0.3s ease-in-out",
   "&:hover": {
     transform: "scale(1.05)",
@@ -146,6 +157,15 @@ const InfoBox = styled(Paper)(({ theme }) => ({
     transform: "scale(1.05)",
   },
 }));
+
+const SliderWrapper = styled('div')({
+  '.slick-slide': {
+    padding: '0 15px', // Add horizontal padding to create space between slides
+  },
+  '.slick-slide > div': {
+    margin: '0 auto', // Center align slides
+  },
+});
 
 const HomePage = () => {
   const theme = useTheme();
@@ -247,44 +267,49 @@ const HomePage = () => {
         <Typography variant="h4" align="center" gutterBottom style={{ color: '#fff', zIndex: 1, position: 'relative' }}>
           Farming Blogs
         </Typography>
-        <Slider {...settings}>
-          {blogSections.map((section, index) => (
-            <Grow in={true} key={index} timeout={index * 500}>
-              <BlogBox>
-                <Typography variant="h5">{section.title}</Typography>
-                <StyledVideo controls>
-                  <source src={section.video} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </StyledVideo>
-                <Typography variant="body1">{section.description}</Typography>
-                <ExploreButton variant="contained">Explore</ExploreButton>
-              </BlogBox>
-            </Grow>
-          ))}
-        </Slider>
-        <Grid container spacing={3} style={{ marginTop: '2rem', zIndex: 1, position: 'relative' }}>
-          <Grid item xs={12} sm={6} md={3}>
+        <SliderWrapper>
+          <Slider {...settings}>
+            {blogSections.map((section, index) => (
+              <Grow in={true} key={index} timeout={index * 500}>
+                <BlogBox>
+                  <Typography variant="h5">{section.title}</Typography>
+                  <StyledVideo controls>
+                    <source src={section.video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </StyledVideo>
+                  <Typography variant="body1">{section.description}</Typography>
+                  <ExploreButton variant="contained">Explore More</ExploreButton>
+                </BlogBox>
+              </Grow>
+            ))}
+          </Slider>
+        </SliderWrapper>
+        <Typography variant="h4" align="center" gutterBottom style={{ color: '#fff', zIndex: 1, position: 'relative', marginTop: '3rem' }}>
+          Additional Functionalities
+        </Typography>
+        <Grid container spacing={2} justifyContent="center">
+          <Grid item xs={12} sm={6} md={4}>
             <InfoBox>
               <Typography variant="h6">Chat with Farmers</Typography>
-              <Typography variant="body2">Connect and share knowledge.</Typography>
+              <Typography variant="body1">Connect and chat with other farmers.</Typography>
             </InfoBox>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={4}>
             <InfoBox>
-              <Typography variant="h6">Video Calls</Typography>
-              <Typography variant="body2">Discuss farming techniques face-to-face.</Typography>
+              <Typography variant="h6">Video Call</Typography>
+              <Typography variant="body1">Have a video call with farming experts.</Typography>
             </InfoBox>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={4}>
             <InfoBox>
               <Typography variant="h6">Market Prices</Typography>
-              <Typography variant="body2">Stay updated with the latest prices.</Typography>
+              <Typography variant="body1">Stay updated with the latest market prices.</Typography>
             </InfoBox>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={4}>
             <InfoBox>
               <Typography variant="h6">Crop Diseases</Typography>
-              <Typography variant="body2">Identify and treat crop diseases.</Typography>
+              <Typography variant="body1">Get information on crop diseases and solutions.</Typography>
             </InfoBox>
           </Grid>
         </Grid>
