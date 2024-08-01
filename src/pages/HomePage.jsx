@@ -16,22 +16,22 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import imgagebg from '../Assets/blockofwood.jpeg';
-import backgroundVideo from '../Assets/myfarmingbg.mp4'; 
-import farmingTechnology from '../Assets/farmingTechnology.mp4';
-import farmingExpert from '../Assets/farmingExpert.mp4';
-import crops from '../Assets/crops.mp4';
-import agriNews from '../Assets/agrinews.mp4';
+import imgagebg from "../Assets/blockofwood.jpeg";
+import backgroundVideo from "../Assets/myfarmingbg.mp4";
+import farmingTechnology from "../Assets/farmingTechnology.mp4";
+import farmingExpert from "../Assets/farmingExpert.mp4";
+import crops from "../Assets/crops.mp4";
+import agriNews from "../Assets/agrinews.mp4";
 
 import { Footer } from "./footer";
 
-const VideoBackground = styled('video')({
-  position: 'fixed',
+const VideoBackground = styled("video")({
+  position: "fixed",
   top: 0,
   left: 0,
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
   zIndex: -1,
 });
 
@@ -60,12 +60,12 @@ const float4 = keyframes`
 `;
 
 const MainBox = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
+  display: "flex",
+  flexDirection: "column",
   gap: theme.spacing(2),
   marginBottom: theme.spacing(4),
   zIndex: 1,
-  position: 'relative',
+  position: "relative",
 }));
 
 const PlankBox1 = styled(Box)(({ theme }) => ({
@@ -80,13 +80,13 @@ const PlankBox1 = styled(Box)(({ theme }) => ({
   boxShadow: theme.shadows[3],
   cursor: "pointer",
   transition: "transform 0.3s ease-in-out",
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: '100%', // Changed to percentage for responsiveness
-  maxWidth: '500px',
-  margin: '0 auto',
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "100%", // Changed to percentage for responsiveness
+  maxWidth: "500px",
+  margin: "0 auto",
   animation: `${float1} 1.5s ease-in-out`, // Increased speed
   "&:hover": {
     transform: "scale(1.05)",
@@ -106,23 +106,23 @@ const PlankBox4 = styled(PlankBox1)({
 });
 
 const BlogBox = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  backgroundColor: 'rgba(255, 255, 255, 0.8)',
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  backgroundColor: "rgba(255, 255, 255, 0.8)",
   color: theme.palette.secondary.contrastText,
   borderRadius: theme.shape.borderRadius,
   boxShadow: theme.shadows[2],
   textAlign: "center",
-  justifyContent: 'space-between',
+  justifyContent: "space-between",
   zIndex: 1,
-  position: 'relative',
-  overflow: 'hidden',
-  width: '100%', // Changed to percentage for responsiveness
-  maxWidth: '550px',
-  height: '400px',
-  padding: '0 15px',
-  margin: '0 auto', // Center align the box
+  position: "relative",
+  overflow: "hidden",
+  width: "100%", // Changed to percentage for responsiveness
+  maxWidth: "550px",
+  height: "400px",
+  padding: "0 15px",
+  margin: "0 auto", // Center align the box
   transition: "transform 0.3s ease-in-out",
   "&:hover": {
     transform: "scale(1.05)",
@@ -132,24 +132,24 @@ const BlogBox = styled(Box)(({ theme }) => ({
 const ExploreButton = styled(Button)(({ theme }) => ({
   marginTop: theme.spacing(2),
   backgroundColor: theme.palette.primary.main,
-  color: '#fff',
-  '&:hover': {
+  color: "#fff",
+  "&:hover": {
     backgroundColor: theme.palette.primary.dark,
   },
 }));
 
-const StyledVideo = styled('video')({
-  width: '100%',
-  height: '250px',
-  objectFit: 'cover',
-  borderRadius: '4px',
+const StyledVideo = styled("video")({
+  width: "100%",
+  height: "250px",
+  objectFit: "cover",
+  borderRadius: "4px",
 });
 
 const InfoBox = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(2),
-  textAlign: 'center',
+  textAlign: "center",
   color: theme.palette.text.secondary,
-  background: 'rgba(255, 255, 255, 0.9)',
+  background: "rgba(255, 255, 255, 0.9)",
   borderRadius: theme.shape.borderRadius,
   boxShadow: theme.shadows[3],
   transition: "transform 0.3s ease-in-out",
@@ -158,18 +158,18 @@ const InfoBox = styled(Paper)(({ theme }) => ({
   },
 }));
 
-const SliderWrapper = styled('div')({
-  '.slick-slide': {
-    padding: '0 15px', // Add horizontal padding to create space between slides
+const SliderWrapper = styled("div")({
+  ".slick-slide": {
+    padding: "0 15px", // Add horizontal padding to create space between slides
   },
-  '.slick-slide > div': {
-    margin: '0 auto', // Center align slides
+  ".slick-slide > div": {
+    margin: "0 auto", // Center align slides
   },
 });
 
 const HomePage = () => {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const settings = {
     dots: true,
@@ -199,36 +199,36 @@ const HomePage = () => {
 
   const blogSections = [
     {
-      title: 'Listen to Farming Expert',
+      title: "Listen to Farming Expert",
       video: farmingExpert,
-      description: 'Content about different farming techniques and methods.',
+      description: "Content about different farming techniques and methods.",
     },
     {
-      title: 'New Technology',
+      title: "New Technology",
       video: farmingTechnology,
-      description: 'Insights on the latest agricultural technologies.',
+      description: "Insights on the latest agricultural technologies.",
     },
     {
-      title: 'Agriculture News',
+      title: "Agriculture News",
       video: agriNews,
-      description: 'Tips for improving crop yield and soil health.',
+      description: "Tips for improving crop yield and soil health.",
     },
     {
-      title: 'Crops',
+      title: "Crops",
       video: crops,
-      description: 'Weather patterns and their impact on farming.',
+      description: "Weather patterns and their impact on farming.",
     },
   ];
 
   return (
     <>
-      <Container 
-        style={{ 
-          marginTop: "2%", 
-          position: 'relative',
-          backgroundColor: 'transparent',
+      <Container
+        style={{
+          marginTop: "2%",
+          position: "relative",
+          backgroundColor: "transparent",
           padding: 0,
-          boxShadow: 'none',
+          boxShadow: "none",
           zIndex: 1,
         }}
       >
@@ -236,35 +236,53 @@ const HomePage = () => {
           <source src={backgroundVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </VideoBackground>
-      
-        <Typography variant="h3" align="center" gutterBottom style={{ 
-          color: 'white'
-        }}>
+
+        <Typography
+          variant="h3"
+          align="center"
+          gutterBottom
+          style={{
+            color: "white",
+          }}
+        >
           Welcome to the Farming Services Portal
         </Typography>
         <MainBox>
           <Fade in={true} timeout={1000}>
-            <PlankBox1>
-              <Typography variant="h5"><a href="/yourservices">Offer Services</a></Typography>
-            </PlankBox1>
+            <a href="/yourservices">
+              <PlankBox1>
+                <Typography variant="h5">Offer Services</Typography>
+              </PlankBox1>
+            </a>
           </Fade>
           <Fade in={true} timeout={1500}>
-            <PlankBox2>
-              <Typography variant="h5"><a href="/seviceCard">Find Service</a></Typography>
-            </PlankBox2>
+            <a href="/seviceCard">
+              <PlankBox2>
+                <Typography variant="h5">Find Service</Typography>
+              </PlankBox2>
+            </a>
           </Fade>
           <Fade in={true} timeout={2000}>
-            <PlankBox3>
-              <Typography variant="h5"><a href="/cropdetail">Crop Detail</a></Typography>
-            </PlankBox3>
+            <a href="/cropdetail">
+              <PlankBox3>
+                <Typography variant="h5">Crop Detail</Typography>
+              </PlankBox3>
+            </a>
           </Fade>
           <Fade in={true} timeout={2500}>
-            <PlankBox4>
-              <Typography variant="h5"><a href="/weather">Weather Report</a></Typography>
-            </PlankBox4>
+            <a href="/weather">
+              <PlankBox4>
+                <Typography variant="h5">Weather Report</Typography>
+              </PlankBox4>
+            </a>
           </Fade>
         </MainBox>
-        <Typography variant="h4" align="center" gutterBottom style={{ color: '#fff', zIndex: 1, position: 'relative' }}>
+        <Typography
+          variant="h4"
+          align="center"
+          gutterBottom
+          style={{ color: "#fff", zIndex: 1, position: "relative" }}
+        >
           Farming Blogs
         </Typography>
         <SliderWrapper>
@@ -278,38 +296,58 @@ const HomePage = () => {
                     Your browser does not support the video tag.
                   </StyledVideo>
                   <Typography variant="body1">{section.description}</Typography>
-                  <ExploreButton variant="contained" href="/vlogs/aggrNewCard">Explore More</ExploreButton>
+                  <ExploreButton variant="contained" href="/vlogs/aggrNewCard">
+                    Explore More
+                  </ExploreButton>
                 </BlogBox>
               </Grow>
             ))}
           </Slider>
         </SliderWrapper>
-        <Typography variant="h4" align="center" gutterBottom style={{ color: '#fff', zIndex: 1, position: 'relative', marginTop: '3rem' }}>
+        <Typography
+          variant="h4"
+          align="center"
+          gutterBottom
+          style={{
+            color: "#fff",
+            zIndex: 1,
+            position: "relative",
+            marginTop: "3rem",
+          }}
+        >
           Additional Functionalities
         </Typography>
         <Grid container spacing={2} justifyContent="center">
           <Grid item xs={12} sm={6} md={4}>
             <InfoBox>
               <Typography variant="h6">Chat with Farmers</Typography>
-              <Typography variant="body1">Connect and chat with other farmers.</Typography>
+              <Typography variant="body1">
+                Connect and chat with other farmers.
+              </Typography>
             </InfoBox>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <InfoBox>
               <Typography variant="h6">Video Call</Typography>
-              <Typography variant="body1">Have a video call with farming experts.</Typography>
+              <Typography variant="body1">
+                Have a video call with farming experts.
+              </Typography>
             </InfoBox>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <InfoBox>
               <Typography variant="h6">Market Prices</Typography>
-              <Typography variant="body1">Stay updated with the latest market prices.</Typography>
+              <Typography variant="body1">
+                Stay updated with the latest market prices.
+              </Typography>
             </InfoBox>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <InfoBox>
               <Typography variant="h6">Crop Diseases</Typography>
-              <Typography variant="body1">Get information on crop diseases and solutions.</Typography>
+              <Typography variant="body1">
+                Get information on crop diseases and solutions.
+              </Typography>
             </InfoBox>
           </Grid>
         </Grid>
