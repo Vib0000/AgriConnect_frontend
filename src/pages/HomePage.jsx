@@ -278,7 +278,7 @@ const HomePage = () => {
                     Your browser does not support the video tag.
                   </StyledVideo>
                   <Typography variant="body1">{section.description}</Typography>
-                  <ExploreButton variant="contained">Explore More</ExploreButton>
+                  <ExploreButton variant="contained" href="/vlogs/aggrNewCard">Explore More</ExploreButton>
                 </BlogBox>
               </Grow>
             ))}
